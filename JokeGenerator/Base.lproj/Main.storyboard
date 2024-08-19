@@ -15,10 +15,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Joke View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JokeGenerator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="JokeViewController" customModule="JokeGenerator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,7 +62,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="df0-Zf-TgR">
                                         <rect key="frame" x="0.0" y="88" width="350" height="64"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBK-sh-Cgd" userLabel="Type label">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBK-sh-Cgd" userLabel="Type label">
                                                 <rect key="frame" x="24" y="22.5" width="34.5" height="19"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Type">
@@ -158,23 +158,21 @@
                                         <buttonConfiguration key="configuration" style="plain" image="RefreshIcon">
                                             <attributedString key="attributedTitle"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="jokeRefreshed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kRU-Ur-ElQ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3b-1q-pSC">
                                         <rect key="frame" x="94" y="0.0" width="256" height="78"/>
                                         <color key="backgroundColor" name="JokeGreenColor"/>
                                         <color key="tintColor" name="BlackColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="Show punchline">
-                                                    <attributes>
-                                                        <font key="NSFont" size="16" name="Roboto-Medium"/>
-                                                        <font key="NSOriginalFont" size="12" name="Helvetica"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
+                                        <buttonConfiguration key="configuration" style="plain" title="Show punchline">
+                                            <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="showPunchline:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JmK-ee-wqh"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -193,6 +191,19 @@
                             <constraint firstItem="vkw-km-cVR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="uA0-iv-6n7"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="idLabel" destination="kX3-G3-abq" id="n8t-LH-T7n"/>
+                        <outlet property="jokeIDLabel" destination="KAJ-FC-fHg" id="Q1X-XJ-N0d"/>
+                        <outlet property="jokeIDView" destination="UKA-J0-xxN" id="VG3-qg-sOu"/>
+                        <outlet property="jokeLabel" destination="si7-Zv-W91" id="JgH-io-Uzf"/>
+                        <outlet property="jokeView" destination="7fd-Cu-nRl" id="dCR-n8-QS5"/>
+                        <outlet property="refreshButton" destination="1tV-4b-7d5" id="qdd-P8-WGS"/>
+                        <outlet property="setupLabel" destination="VHq-co-bsk" id="5OO-mw-WtP"/>
+                        <outlet property="showPunchlineButton" destination="C3b-1q-pSC" id="iVQ-PB-KIj"/>
+                        <outlet property="typeDinamicLabel" destination="d6h-3i-qIJ" id="e3L-8i-urd"/>
+                        <outlet property="typeLabel" destination="GBK-sh-Cgd" id="Gud-rw-yS2"/>
+                        <outlet property="typeView" destination="df0-Zf-TgR" id="mih-FJ-jZN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
