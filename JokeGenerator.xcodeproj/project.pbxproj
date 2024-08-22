@@ -18,6 +18,9 @@
 		D0099ABF2C70EECB001C3005 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0099AB12C70EECB001C3005 /* Roboto-Light.ttf */; };
 		D0099AC12C70EECB001C3005 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0099AB32C70EECB001C3005 /* Roboto-Medium.ttf */; };
 		D0099AC32C70EECB001C3005 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0099AB52C70EECB001C3005 /* Roboto-Regular.ttf */; };
+		D028FA7A2C7737D000DC2B53 /* JokeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D028FA792C7737D000DC2B53 /* JokeModel.swift */; };
+		D028FA7C2C77383A00DC2B53 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D028FA7B2C77383A00DC2B53 /* NetworkClient.swift */; };
+		D028FA7E2C7739E800DC2B53 /* JokeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D028FA7D2C7739E800DC2B53 /* JokeLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		D0099AB12C70EECB001C3005 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		D0099AB32C70EECB001C3005 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		D0099AB52C70EECB001C3005 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		D028FA792C7737D000DC2B53 /* JokeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeModel.swift; sourceTree = "<group>"; };
+		D028FA7B2C77383A00DC2B53 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		D028FA7D2C7739E800DC2B53 /* JokeLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,9 @@
 				D0099A952C70A87A001C3005 /* AppDelegate.swift */,
 				D0099A972C70A87A001C3005 /* SceneDelegate.swift */,
 				D0099A992C70A87A001C3005 /* JokeViewController.swift */,
+				D028FA792C7737D000DC2B53 /* JokeModel.swift */,
+				D028FA7B2C77383A00DC2B53 /* NetworkClient.swift */,
+				D028FA7D2C7739E800DC2B53 /* JokeLoader.swift */,
 				D0099A9B2C70A87A001C3005 /* Main.storyboard */,
 				D0099AA92C70EE9C001C3005 /* Resources */,
 				D0099AA02C70A87E001C3005 /* LaunchScreen.storyboard */,
@@ -182,7 +191,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D028FA7A2C7737D000DC2B53 /* JokeModel.swift in Sources */,
+				D028FA7C2C77383A00DC2B53 /* NetworkClient.swift in Sources */,
 				D0099A9A2C70A87A001C3005 /* JokeViewController.swift in Sources */,
+				D028FA7E2C7739E800DC2B53 /* JokeLoader.swift in Sources */,
 				D0099A962C70A87A001C3005 /* AppDelegate.swift in Sources */,
 				D0099A982C70A87A001C3005 /* SceneDelegate.swift in Sources */,
 			);
