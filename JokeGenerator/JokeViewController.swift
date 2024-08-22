@@ -21,29 +21,32 @@ class JokeViewController: UIViewController {
     @IBOutlet private var refreshButton: UIButton!
     @IBOutlet private var showPunchlineButton: UIButton!
     
+    private var punchline: String?
+    
     private let robotoFontName: String = "Roboto-Medium"
     private let fontSize: CGFloat = 16
     private let jokeFontSize: CGFloat = 24
     private let cornerRadius: CGFloat = 8
     private let borderWidth: CGFloat = 2
     private let borderColor: UIColor = .black
-    
 
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupFonts()
         setupViews()
-        // Do any additional setup after loading the view.
     }
     
-    
+    // MARK: - Actions
     @IBAction func jokeRefreshed(_ sender: Any) {
+        
     }
     
     @IBAction func showPunchline(_ sender: Any) {
+        showPunchlineAlert()
     }
     
-    
+    // MARK: - Private methods
     private func setupFonts() {
         jokeIDLabel.font = UIFont(name: robotoFontName, size: fontSize)
         idLabel.font = UIFont(name: robotoFontName, size: fontSize)
@@ -72,7 +75,16 @@ class JokeViewController: UIViewController {
         jokeView.layer.cornerRadius = cornerRadius
         refreshButton.layer.cornerRadius = cornerRadius
         showPunchlineButton.layer.cornerRadius = cornerRadius
-        
     }
+    
+    private func showPunchlineAlert() {
+        let alert = UIAlertController(title: "Punchline", message: punchline, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default) { _ in
+            
+        }
+        alert.addAction(action)
+        self.present(alert, animated: true)
+    }
+    
 }
 
