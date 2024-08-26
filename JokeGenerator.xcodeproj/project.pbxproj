@@ -27,6 +27,7 @@
 		D02B4E7B2C7C78D400E8C807 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02B4E7A2C7C78D400E8C807 /* AlertModel.swift */; };
 		D02B4E7D2C7C795300E8C807 /* AlertPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02B4E7C2C7C795300E8C807 /* AlertPresenterProtocol.swift */; };
 		D02B4E7F2C7C79B600E8C807 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02B4E7E2C7C79B600E8C807 /* AlertPresenter.swift */; };
+		D02B4E812C7CB2FE00E8C807 /* JokePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02B4E802C7CB2FE00E8C807 /* JokePresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		D02B4E7A2C7C78D400E8C807 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		D02B4E7C2C7C795300E8C807 /* AlertPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenterProtocol.swift; sourceTree = "<group>"; };
 		D02B4E7E2C7C79B600E8C807 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
+		D02B4E802C7CB2FE00E8C807 /* JokePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokePresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				D0099A992C70A87A001C3005 /* JokeViewController.swift */,
+				D02B4E802C7CB2FE00E8C807 /* JokePresenter.swift */,
 				D02B4E7E2C7C79B600E8C807 /* AlertPresenter.swift */,
 				D0099A9B2C70A87A001C3005 /* Main.storyboard */,
 			);
@@ -237,6 +240,7 @@
 				D028FA7C2C77383A00DC2B53 /* NetworkClient.swift in Sources */,
 				D0099A9A2C70A87A001C3005 /* JokeViewController.swift in Sources */,
 				D028FA7E2C7739E800DC2B53 /* JokeLoader.swift in Sources */,
+				D02B4E812C7CB2FE00E8C807 /* JokePresenter.swift in Sources */,
 				D0099A962C70A87A001C3005 /* AppDelegate.swift in Sources */,
 				D0099A982C70A87A001C3005 /* SceneDelegate.swift in Sources */,
 				D02B4E7D2C7C795300E8C807 /* AlertPresenterProtocol.swift in Sources */,
