@@ -180,12 +180,17 @@
                                     <constraint firstItem="1tV-4b-7d5" firstAttribute="height" secondItem="C3b-1q-pSC" secondAttribute="height" id="mnq-32-hkb"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="5ZP-uA-JNC">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PrX-B0-Prc" secondAttribute="trailing" constant="32" id="4aC-hp-mza"/>
                             <constraint firstItem="vkw-km-cVR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="IHE-IG-evQ"/>
+                            <constraint firstItem="5ZP-uA-JNC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="K7a-UO-t9t"/>
+                            <constraint firstItem="5ZP-uA-JNC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RLs-H2-Xau"/>
                             <constraint firstItem="PrX-B0-Prc" firstAttribute="top" secondItem="vkw-km-cVR" secondAttribute="bottom" constant="55" id="TUr-mT-CAE"/>
                             <constraint firstItem="PrX-B0-Prc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="UBw-0o-iHH"/>
                             <constraint firstAttribute="trailing" secondItem="vkw-km-cVR" secondAttribute="trailing" constant="32" id="XKS-6O-qW3"/>
@@ -194,6 +199,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="5ZP-uA-JNC" id="zo4-qx-BQb"/>
                         <outlet property="idLabel" destination="kX3-G3-abq" id="n8t-LH-T7n"/>
                         <outlet property="jokeIDLabel" destination="KAJ-FC-fHg" id="Q1X-XJ-N0d"/>
                         <outlet property="jokeIDView" destination="UKA-J0-xxN" id="VG3-qg-sOu"/>
