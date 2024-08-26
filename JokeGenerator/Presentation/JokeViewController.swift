@@ -7,7 +7,7 @@
 
 import UIKit
 
-class JokeViewController: UIViewController, JokeFactoryDelegate {
+class JokeViewController: UIViewController {
     
     @IBOutlet private var jokeIDView: UIView!
     @IBOutlet private var jokeIDLabel: UILabel!
@@ -22,7 +22,7 @@ class JokeViewController: UIViewController, JokeFactoryDelegate {
     @IBOutlet private var showPunchlineButton: UIButton!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
-    private var jokeFactory: JokeFactoryProtocol?
+    private var presenter: JokePresenter?
     private var alertPresenter: AlertPresenterProtocol?
     private var punchline: String = ""
     
@@ -39,15 +39,12 @@ class JokeViewController: UIViewController, JokeFactoryDelegate {
         setupFonts()
         setupViews()
         activityIndicator.hidesWhenStopped = true
-        alertPresenter = AlertPresenter(delegate: self)
-        showActivityIndicator()
-        jokeFactory = JokeFactory(jokeLoader: JokeLoader(), delegate: self)
-        jokeFactory?.loadJoke()
+        initialSetup()
     }
     
     // MARK: - Actions
     @IBAction func jokeRefreshed(_ sender: Any) {
-        jokeFactory?.loadJoke()
+        presenter?.requestNewJoke()
     }
     
     @IBAction func showPunchline(_ sender: Any) {
@@ -62,21 +59,21 @@ class JokeViewController: UIViewController, JokeFactoryDelegate {
         activityIndicator.stopAnimating()
     }
     
-    // MARK: - JokeFactoryDelegate
-    func didReceivedJoke(joke: JokeModel?) {
-        guard let joke = joke else { return }
-        show(joke: joke)
+    // сообщение об ошибке
+    func showAlert(message: String) {
+        let alertModel = AlertModel(title: "Error", message: message, buttonText: "OK") {
+            self.presenter?.requestNewJoke()
+        }
+        alertPresenter?.present(alertModel: alertModel, id: nil)
     }
     
-    func dataDidLoaded() {
-        hideActivityIndicator()
-        jokeFactory?.requestJoke()
+    // показываем шутку
+   func show(joke: JokeModel) {
+        idLabel.text = String(joke.id)
+        typeDinamicLabel.text = joke.type
+        jokeLabel.text = joke.setup
+        punchline = joke.punchline
     }
-    
-    func loadDataFailed(with error: any Error) {
-        showAlert(with: error)
-    }
-    
     
     // MARK: - Private methods
     private func setupFonts() {
@@ -112,27 +109,15 @@ class JokeViewController: UIViewController, JokeFactoryDelegate {
     // сообщение с шуткой
     private func showPunchlineAlert() {
         let alertModel = AlertModel(title: "Punchline", message: punchline, buttonText: "OK") {
-            self.jokeFactory?.loadJoke()
+            self.presenter?.requestNewJoke()
         }
         alertPresenter?.present(alertModel: alertModel, id: nil)
     }
     
-    
-    // сообщение об ошибке
-    private func showAlert(with error:Error) {
-        let alertModel = AlertModel(title: "Error", message: error.localizedDescription, buttonText: "OK") {
-            self.jokeFactory?.loadJoke()
-        }
-        alertPresenter?.present(alertModel: alertModel, id: nil)
+    // настраиваем связи с нужными сущностями
+    private func initialSetup() {
+        alertPresenter = AlertPresenter(delegate: self)
+        presenter = JokePresenter(jokeViewController: self)
     }
-    
-    // показываем шутку
-    private func show(joke: JokeModel) {
-        idLabel.text = String(joke.id)
-        typeDinamicLabel.text = joke.type
-        jokeLabel.text = joke.setup
-        punchline = joke.punchline
-    }
-    
 }
 

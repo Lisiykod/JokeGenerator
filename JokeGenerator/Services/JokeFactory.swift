@@ -18,6 +18,7 @@ class JokeFactory: JokeFactoryProtocol {
         self.delegate = delegate
     }
     
+    // загружаем шутку
     func loadJoke() {
         jokeLoader.loadData { [weak self] result in
             DispatchQueue.main.async {
@@ -33,6 +34,7 @@ class JokeFactory: JokeFactoryProtocol {
         }
     }
     
+    // запрашиваем готовую шутку
     func requestJoke() {
         guard let joke = joke else { return }
         let newJoke = JokeModel(type: joke.type,

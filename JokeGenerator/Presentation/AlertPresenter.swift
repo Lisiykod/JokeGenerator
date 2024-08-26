@@ -19,6 +19,7 @@ class AlertPresenter: AlertPresenterProtocol {
         let alert = UIAlertController(title: alertModel.title,
                                       message: alertModel.message,
                                       preferredStyle: .alert)
+        // настраиваем id для доступности, и для тестов
         alert.view.accessibilityIdentifier = id
         let action = UIAlertAction(title: alertModel.buttonText, style: .default) { _ in
             alertModel.completion()
