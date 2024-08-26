@@ -33,6 +33,8 @@ class JokeViewController: UIViewController {
     private let borderWidth: CGFloat = 2
     private let borderColor: UIColor = .borderBlack
     
+    private var buttonIsEnable: Bool = false
+    
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +46,8 @@ class JokeViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func jokeRefreshed(_ sender: Any) {
+        buttonIsEnable = false
+        changeStateButton(isEnabled: buttonIsEnable)
         presenter?.requestNewJoke()
     }
     
@@ -51,6 +55,7 @@ class JokeViewController: UIViewController {
         showPunchlineAlert()
     }
     
+    // MARK: - Public methods
     func showActivityIndicator() {
         activityIndicator.startAnimating()
     }
@@ -73,6 +78,12 @@ class JokeViewController: UIViewController {
         typeDinamicLabel.text = joke.type
         jokeLabel.text = joke.setup
         punchline = joke.punchline
+    }
+    
+    // делаем кнопку рефреш доступной
+    func enableButton() {
+        buttonIsEnable = true
+        changeStateButton(isEnabled: buttonIsEnable)
     }
     
     // MARK: - Private methods
@@ -119,5 +130,10 @@ class JokeViewController: UIViewController {
         alertPresenter = AlertPresenter(delegate: self)
         presenter = JokePresenter(jokeViewController: self)
     }
+    
+    private func changeStateButton(isEnabled: Bool) {
+        refreshButton.isEnabled = isEnabled
+    }
+    
 }
 

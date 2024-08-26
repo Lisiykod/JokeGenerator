@@ -22,6 +22,10 @@ class JokePresenter: JokeFactoryDelegate {
     // загружаем новую шутку из фабрики для контроллера
     func requestNewJoke() {
         jokeFactory?.loadJoke()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+            guard let self = self else { return }
+            jokeViewController?.enableButton()
+        }
     }
     
     
